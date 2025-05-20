@@ -1,0 +1,16 @@
+{
+  "name": "Basic Node.js",
+  "build": { "dockerfile": "Dockerfile" },
+
+  "forwardPorts": [3000],
+
+  "postCreateCommand": "npm install",
+
+  "customizations" : {
+    "jetbrains" : {
+      "backend" : "WebStorm"
+    }
+  },
+
+  "remoteUser": "node"
+}
