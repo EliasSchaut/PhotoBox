@@ -1,7 +1,7 @@
 {
-  "name": "Elias Schaut",
-  "short_name": "ES",
-  "start_url": "https://schaut.dev",
+  "name": "PhotoBox",
+  "short_name": "PB",
+  "start_url": "https://photobox.schaut.dev",
   "icons": [
     {
       "src": "/favicon/android-chrome-192x192.png",

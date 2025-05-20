@@ -1,2 +1,2 @@
-# NuxtTemplate
-My personal template for nuxt projects
+# PhotoBox
+A web app designed for a photo box to print and share pictures
