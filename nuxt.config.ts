@@ -13,14 +13,15 @@ export default defineNuxtConfig({
     plugins: [tailwindcss()],
   },
 
-  site: {
-    url: "https://photobox.schaut.dev",
-    name: "PhotoBox",
-  },
-
   router: {
     options: {
       scrollBehaviorType: "smooth",
+    },
+  },
+
+  runtimeConfig: {
+    public: {
+      frontendUrl: process.env.FRONTEND_URL || 'http://localhost:3000',
     },
   },
 });

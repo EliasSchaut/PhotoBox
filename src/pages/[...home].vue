@@ -36,7 +36,9 @@ import QRCode from 'qrcode.vue';
 export default defineComponent({
   components: { QRCode },
   setup() {
+    const { frontendUrl } = useRuntimeConfig().public;
     return {
+      frontendUrl,
       videoElement: ref<HTMLVideoElement | null>(null),
       showCountdown: ref(false),
       countdown: ref(5),
@@ -144,7 +146,7 @@ export default defineComponent({
           console.log('Photo saved successfully');
 
           // Set the photo URL and show success message
-          this.lastPhotoUrl = `${window.location.origin}/${randomName}`;
+          this.lastPhotoUrl = `${this.frontendUrl}/${randomName}`;
           this.showSuccessMessage = true;
         } else {
           console.error('Failed to save photo');

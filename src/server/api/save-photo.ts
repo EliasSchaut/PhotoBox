@@ -1,9 +1,12 @@
 import { createWriteStream } from 'fs';
 import { mkdir } from 'fs/promises';
 import { dirname, join } from 'path';
-import { defineEventHandler, readMultipartFormData } from 'h3';
+import { CupsClient } from '../utils/cups-api';
 
 export default defineEventHandler(async (event) => {
+  // Get runtime config for CUPS
+  const config = useRuntimeConfig();
+
   try {
     // Parse multipart form data
     const formData = await readMultipartFormData(event);
