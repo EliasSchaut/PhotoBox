@@ -21,7 +21,8 @@ export default defineNuxtConfig({
 
   runtimeConfig: {
     public: {
-      frontendUrl: process.env.FRONTEND_URL || 'http://localhost:3000',
+      frontendUrl: process.env.FRONTEND_URL ?? 'http://localhost:3000',
     },
+    cupsPrinterName: process.env.CUPS_PRINTER_NAME ?? "Printer",
   },
 });

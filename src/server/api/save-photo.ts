@@ -1,10 +1,9 @@
 import { createWriteStream } from 'fs';
 import { mkdir } from 'fs/promises';
 import { dirname, join } from 'path';
-import { CupsClient } from '../utils/cups-api';
+import { printFile } from '~/server/utils/cups';
 
 export default defineEventHandler(async (event) => {
-  // Get runtime config for CUPS
   const config = useRuntimeConfig();
 
   try {
@@ -14,7 +13,7 @@ export default defineEventHandler(async (event) => {
     if (!formData || formData.length === 0) {
       return {
         success: false,
-        error: 'No file uploaded'
+        error: 'No file uploaded',
       };
     }
 
@@ -23,7 +22,7 @@ export default defineEventHandler(async (event) => {
     if (!photoFile || !photoFile.filename) {
       return {
         success: false,
-        error: 'No photo found in request'
+        error: 'No photo found in request',
       };
     }
 
@@ -40,7 +39,12 @@ export default defineEventHandler(async (event) => {
     // Write the file
     const writeStream = createWriteStream(filePath);
     writeStream.write(photoFile.data);
-    writeStream.end();
+    await new Promise((resolve) => {
+      writeStream.end(resolve);
+    });
+
+    // Print the photo using cups api
+    await printFile(filePath)
 
     // Return success with the URL to access the photo
     return {
@@ -50,7 +54,7 @@ export default defineEventHandler(async (event) => {
     console.error('Error saving photo:', error);
     return {
       success: false,
-      error: 'Failed to save photo'
+      error: 'Failed to save photo',
     };
   }
 });

@@ -7,6 +7,7 @@ A web app designed for a photo box to capture, print, and share pictures.
 - **Live Camera Feed**: Full-screen video feed from your device's camera
 - **Photo Capture**: Press 'p' to take a photo with a 5-second countdown
 - **Automatic Storage**: Photos are saved with random filenames in the public directory
+- **Automatic Printing**: Photos are automatically printed via CUPS after capture
 - **QR Code Access**: Scan QR codes to access saved photos on mobile devices
 - **Photo Viewing Page**: Dedicated page for viewing each photo
 - **Download Option**: Download photos directly to your device's photo gallery
@@ -26,10 +27,22 @@ A web app designed for a photo box to capture, print, and share pictures.
 - Built with Nuxt.js and Vue 3
 - Uses the MediaDevices API for camera access
 - Photos are stored in the `/public/photos` directory with random filenames
+- Automatic printing via custom CUPS (Common Unix Printing System) API implementation
 - QR codes generated using qrcode.vue library
 - Dedicated photo viewing page at `/photos/[id]` route
 - Download functionality using HTML5 download attribute
 - Responsive design works on various screen sizes
+
+## Configuration
+
+To enable the printing functionality, you need cups installed locally and set up the following environment variables in
+a `.env` file:
+
+```
+CUPS_PRINTER_NAME=printer_name    # Name of the printer to use
+```
+
+A template `.env.example` file is provided for reference.
 
 ## Development
 
