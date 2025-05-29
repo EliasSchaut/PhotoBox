@@ -32,6 +32,6 @@
 <script setup lang="ts">
 const route = useRoute();
 const photoId = route.params.id as string;
-const photoUrl = `/photos/${photoId}.jpg`;
+const photoUrl = `/api/get-photo?id=${photoId}`;
 const photoFilename = photoId;
 </script>

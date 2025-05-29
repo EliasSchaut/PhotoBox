@@ -17,10 +17,10 @@
     "generate": "nuxt generate"
   },
   "dependencies": {
-    "@tailwindcss/vite": "^4.1.7",
+    "@tailwindcss/vite": "^4.1.8",
     "node-cups": "^1.2.3",
     "nuxt": "^3.17.4",
     "qrcode.vue": "^3.6.0",
-    "tailwindcss": "^4.1.7"
+    "tailwindcss": "^4.1.8"
   }
 }
