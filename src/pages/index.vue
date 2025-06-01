@@ -1,7 +1,7 @@
 <template>
   <div class="relative h-screen w-screen overflow-hidden">
     <!-- Video feed from camera -->
-    <video ref="videoElement" class="h-full w-full object-cover" autoplay playsinline></video>
+    <video ref="videoElement" class="-scale-x-100 h-full w-full object-cover" autoplay playsinline></video>
 
     <!-- Countdown overlay -->
     <div v-if="showCountdown" class="absolute inset-0 flex items-center justify-center bg-black opacity-50">
