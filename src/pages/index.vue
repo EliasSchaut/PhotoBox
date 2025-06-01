@@ -24,8 +24,8 @@
     </div>
 
     <!-- Instructions -->
-    <div class="absolute bottom-4 left-4 bg-black opacity-60 p-2 text-white rounded">
-      Press 'p' to take a photo (5s countdown)
+    <div @click="startCountdown" class="hover:cursor-pointer absolute bottom-4 left-4 bg-black opacity-60 p-2 text-white rounded">
+      Press button (p) or click to take photo
     </div>
   </div>
 </template>
